@@ -21,9 +21,7 @@ public class RegisterFragment extends Fragment {
     CallbackFragment callbackFragment;
     String userName,name,pass;
     SharedPreferences.Editor editor;
-    public RegisterFragment() {
-        // Required empty public constructor
-    }
+
     @Override
     public void onAttach(Context context) {
         SharedPreferences sharedPreferences=context.getSharedPreferences("userfile",Context.MODE_PRIVATE);

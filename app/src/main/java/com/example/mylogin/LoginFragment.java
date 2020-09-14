@@ -22,8 +22,6 @@ public class LoginFragment extends Fragment {
     String userName,pass;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
-    public LoginFragment() {
-    }
 
     @Override
     public void onAttach(Context context) {
