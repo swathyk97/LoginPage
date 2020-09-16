@@ -1,13 +1,22 @@
 <resources>
 
 
-    <string name="action_settings">Settings</string>
+    <string name="log_out">Log out</string>
 
-
+    <string name="id">EMPLOYEE ID</string>
     <string name="e_mail">Email</string>
     <string name="password">Password</string>
     <string name="login">LOGIN</string>
     <string name="register">Register</string>
     <string name="e_name">Name</string>
     <string name="app_name">MyLogin</string>
+    <string name="user_details">Employee Details</string>
+    <string name="name">NAME</string>
+    <string name="age">AGE</string>
+    <string name="place">PLACE</string>
+    <string name="designation">DESIGNATION</string>
+    <string name="add">ADD</string>
+    <string name="delete">DELETE</string>
+    <string name="update">UPDATE</string>
+    <string name="get">GET ALL</string>
 </resources>
