@@ -101,7 +101,7 @@ public class UserActivity extends AppCompatActivity {
                         displayNotes();
                         Toast.makeText(getApplicationContext(), "Data Inserted", Toast.LENGTH_LONG).show();
                     } else {
-                        Toast.makeText(getApplicationContext(), "Employee id already exist", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Data not inserted", Toast.LENGTH_LONG).show();
                     }
 
                 }
