@@ -1,10 +1,13 @@
 package com.example.mylogin;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,9 +22,10 @@ import java.util.regex.Pattern;
 public class RegisterFragment extends Fragment {
     Button buttonRegister;
     EditText etName, etEmail, etPassword;
-    CallbackFragment callbackFragment;
     String userName, name, pass;
     SharedPreferences.Editor editor;
+    FragmentTransaction fragmentTransaction;
+
 
     @Override
     public void onAttach(Context context) {
@@ -53,6 +57,8 @@ public class RegisterFragment extends Fragment {
                     editor.putString("userName", userName);
                     editor.putString("pass", pass);
                     editor.apply();
+
+
                     // Toast.makeText(getContext(), "Register", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -74,7 +80,14 @@ public class RegisterFragment extends Fragment {
             Toast.makeText(getContext(), "require minimum password length 8", Toast.LENGTH_SHORT).show();
         } else {
             if (isValidEmail(etEmail.getText().toString().trim())) {
+
                 Toast.makeText(getContext(), "success", Toast.LENGTH_SHORT).show();
+                Fragment fragment = new LoginFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
 
             } else {
                 Toast.makeText(getContext(), "Invalid email address", Toast.LENGTH_SHORT).show();

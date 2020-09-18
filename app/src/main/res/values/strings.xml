@@ -15,8 +15,9 @@
     <string name="age">AGE</string>
     <string name="place">PLACE</string>
     <string name="designation">DESIGNATION</string>
-    <string name="add">ADD</string>
+    <string name="add">SUBMIT</string>
     <string name="delete">DELETE</string>
     <string name="update">UPDATE</string>
     <string name="get">GET ALL</string>
+    <string name="profile">Profile image</string>
 </resources>

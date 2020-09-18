@@ -1,5 +1,6 @@
 package com.example.mylogin;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,7 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 
-public class MainActivity extends AppCompatActivity implements CallbackFragment {
+public class MainActivity extends AppCompatActivity  {
     Fragment fragment;
     private static FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
@@ -19,32 +20,16 @@ public class MainActivity extends AppCompatActivity implements CallbackFragment 
         setContentView(R.layout.activity_main);
         addFragment();
 
-
     }
 
     public void addFragment() {
         LoginFragment fragment = new LoginFragment();
-        fragment.setCallbackFragment(this);
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.constraintLayout, fragment);
+        fragmentTransaction.add(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
 
 
-    }
-
-    public void replaceFragment() {
-        fragment = new RegisterFragment();
-        fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.replace(R.id.constraintLayout, fragment);
-        fragmentTransaction.commit();
-    }
-
-    @Override
-    public void changeFragment() {
-        replaceFragment();
     }
 
 

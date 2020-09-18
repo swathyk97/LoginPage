@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.ArrayList;
+
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -80,10 +82,29 @@ public class DBHelper extends SQLiteOpenHelper {
         return db.delete(TABLE_NAME, "_id = ?", new String[]{id});
     }
 
-    public Cursor getAllData() {
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from " + TABLE_NAME, null);
-        return res;
+    public ArrayList<NoteModel> getAllData() {
+        ArrayList<NoteModel> arrayList = new ArrayList<>();
+
+        // select all query
+        String select_query= "SELECT *FROM " + TABLE_NAME;
+
+        SQLiteDatabase db = this .getWritableDatabase();
+        Cursor cursor = db.rawQuery(select_query, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                NoteModel noteModel = new NoteModel();
+                noteModel.set_id(cursor.getString(0));
+                noteModel.setName(cursor.getString(1));
+                noteModel.setAge(cursor.getString(2));
+                noteModel.setPlace(cursor.getString(3));
+                noteModel.setDesignation(cursor.getString(4));
+                arrayList.add(noteModel);
+            }while (cursor.moveToNext());
+        }
+        return arrayList;
     }
+
 
 }
